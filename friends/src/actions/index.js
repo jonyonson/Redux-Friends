@@ -37,7 +37,24 @@ export const getFriends = () => dispatch => {
     .catch(err => {
       dispatch({
         type: FETCH_FRIENDS_FAILURE,
-        payload: `${err.response.status} ${err.response.statusText}`,
+        payload: err,
       });
+    });
+};
+
+export const ADD_FRIEND_START = 'ADD_FRIEND_START';
+export const ADD_FRIEND_SUCCESS = 'ADD_FRIEND_SUCCESS';
+export const ADD_FRIEND_FAILURE = 'ADD_FRIEND_FAILURE';
+
+export const addFriend = friend => dispatch => {
+  dispatch({ type: ADD_FRIEND_START });
+  axiosWithAuth()
+    .post('http://localhost:5000/api/friends', friend)
+    .then(res => {
+      console.log('res', res);
+      dispatch({ type: ADD_FRIEND_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      console.log(err);
     });
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TopBar.css';
-import { FiUserPlus, FiLogOut } from 'react-icons/fi';
+import { FiLogOut, FiUserPlus } from 'react-icons/fi';
 
 class TopBar extends Component {
   logout = () => {
@@ -16,7 +16,6 @@ class TopBar extends Component {
             <div>Add Friend</div>
             <FiUserPlus color="#fafffd" size="24" />
           </div>
-
           <div className="TopBar__logout" onClick={this.logout}>
             <div>Logout</div>
             <FiLogOut color="#fafffd" size="24" />

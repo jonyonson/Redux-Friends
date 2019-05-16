@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import FriendsList from './components/FriendsList/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
-import TopBar from './components/TopBar/TopBar';
 
 function App() {
   return (
@@ -17,7 +16,3 @@ function App() {
 }
 
 export default App;
-
-/* <nav className="App__Navigation">
-  <Link to="/login">Login</Link>
-</nav> */

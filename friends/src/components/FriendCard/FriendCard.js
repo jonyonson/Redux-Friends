@@ -16,8 +16,8 @@ class FriendCard extends React.Component {
       <div className="FriendCard">
         <div className="FriendCard__name">{this.props.friend.name}</div>
         <div className="FriendCard__email">{this.props.friend.email}</div>
-        <div className="FriendCard__phone">{this.props.friend.phone}</div>
-        {/* <div className="FriendCard__age">age: {this.props.friend.age}</div> */}
+        {/* <div className="FriendCard__phone">{this.props.friend.phone}</div> */}
+        <div className="FriendCard__age">age: {this.props.friend.age}</div>
         <div className="FriendCard__icons">
           <MdEdit className="edit-icon" size="20" onClick={this.handleUpdate} />
           <MdDeleteForever

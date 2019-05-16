@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import Login from './Login/Login';
-// import FriendsList from './FriendsList/FriendsList';
+import Login from './components/Login/Login';
+import FriendsList from './components/FriendsList/FriendsList';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="App__Navigation">
+        {/* <nav className="App__Navigation">
           <Link to="/login">Login</Link>
-        </nav>
+        </nav> */}
+        <PrivateRoute exact path="/" component={FriendsList} />
         <Route path="/login" component={Login} />
       </div>
     </Router>
@@ -18,8 +19,3 @@ function App() {
 }
 
 export default App;
-
-// {/* <div className="App">
-
-// {/* <FriendsList /> */}
-// </div>; */}

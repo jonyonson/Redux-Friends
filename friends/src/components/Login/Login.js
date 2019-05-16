@@ -33,6 +33,7 @@ class Login extends React.Component {
       <div className="Login">
         <form onSubmit={this.login}>
           <input
+            autoComplete="off"
             type="text"
             name="username"
             value={this.state.credentials.username}
@@ -48,12 +49,15 @@ class Login extends React.Component {
           <br />
           <button className="Login__Button">
             {this.props.isLoggingIn ? (
-              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+              <Loader type="ThreeDots" color="white" height="12" width="26" />
             ) : (
               'Log in'
             )}
           </button>
         </form>
+        {this.props.error && (
+          <div className="Login__Error">{this.props.error}</div>
+        )}
       </div>
     );
   }
@@ -61,9 +65,12 @@ class Login extends React.Component {
 
 const mapStateToProps = state => ({
   isLoggingIn: state.isLoggingIn,
+  error: state.error,
 });
 
 export default connect(
   mapStateToProps,
   { login }
 )(Login);
+
+// #1f2a38

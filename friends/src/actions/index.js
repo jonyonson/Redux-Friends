@@ -13,7 +13,13 @@ export const login = creds => dispatch => {
       localStorage.setItem('token', res.data.payload);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      dispatch({
+        type: LOGIN_FAILURE,
+        payload: `${err.response.status} ${err.response.statusText}`,
+      });
+    });
 };
 
 export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
@@ -25,13 +31,13 @@ export const getFriends = () => dispatch => {
 
   axiosWithAuth()
     .get('http://localhost:5000/api/friends')
-    // .get('http://localhost:5000/friends')
     .then(res => {
-      console.log(res);
       dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.error(err);
-      dispatch({ type: FETCH_FRIENDS_FAILURE, payload: err.response.data });
+      dispatch({
+        type: FETCH_FRIENDS_FAILURE,
+        payload: `${err.response.status} ${err.response.statusText}`,
+      });
     });
 };

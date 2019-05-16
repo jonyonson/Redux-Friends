@@ -34,7 +34,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
-        // error: action.payload
+        error: action.payload,
       };
     case FETCH_FRIENDS_START:
       return {

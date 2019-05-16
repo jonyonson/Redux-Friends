@@ -2,7 +2,9 @@ import React from 'react';
 import FriendCard from '../FriendCard/FriendCard';
 import { connect } from 'react-redux';
 import { getFriends } from '../../actions';
+import Loader from 'react-loader-spinner';
 import './FriendsList.css';
+import TopBar from '../TopBar/TopBar';
 
 class FriendsList extends React.Component {
   componentDidMount() {
@@ -11,18 +13,27 @@ class FriendsList extends React.Component {
 
   render() {
     return this.props.fetchingFriends ? (
-      <h1>Loading Friends</h1>
+      <>
+        <TopBar />
+        <div className="FriendsList__Loading">
+          <Loader type="Grid" color="#342E37" />
+        </div>
+      </>
     ) : (
-      <div className="FriendsList">
-        {this.props.friends.map(friend => (
-          <FriendCard
-            key={friend.id}
-            friend={friend}
-            handleUpdate={this.props.handleUpdate}
-            deleteContact={this.props.deleteContact}
-          />
-        ))}
-      </div>
+      <>
+        <TopBar />
+
+        <div className="FriendsList">
+          {this.props.friends.map(friend => (
+            <FriendCard
+              key={friend.id}
+              friend={friend}
+              handleUpdate={this.props.handleUpdate}
+              deleteContact={this.props.deleteContact}
+            />
+          ))}
+        </div>
+      </>
     );
   }
 }

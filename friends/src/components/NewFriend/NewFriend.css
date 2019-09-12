@@ -1,0 +1,57 @@
+.NewFriend.FriendCard {
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  justify-content: column;
+}
+
+.NewFriend input {
+  border: none;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  padding: 0 0 5px 0;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.NewFriend input::placeholder {
+  color:#342E37;
+  font-size: 15px;
+}
+
+.NewFriend__name {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 600px;
+  width: 300px;
+}
+.NewFriend__email {
+  width: 300px;
+}
+
+.NewFriend__age {
+  width: 50px;
+}
+
+.NewFriend__cancel-btn,
+input[type="submit"] {
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color:#3C91E6;
+  color: #FAFFFD;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.NewFriend__cancel-btn {
+  margin-right: 10px;
+  background-color: #FA824C;
+  display: inline-block;
+}
+
+.NewFriend__button-group {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}

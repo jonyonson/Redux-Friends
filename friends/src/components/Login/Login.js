@@ -36,6 +36,7 @@ class Login extends React.Component {
             autoComplete="off"
             type="text"
             name="username"
+            placeholder="Username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
@@ -43,6 +44,7 @@ class Login extends React.Component {
           <input
             type="password"
             name="password"
+            placeholder="Password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
@@ -51,7 +53,7 @@ class Login extends React.Component {
             {this.props.isLoggingIn ? (
               <Loader type="ThreeDots" color="white" height="12" width="26" />
             ) : (
-              'Log in'
+              'Login'
             )}
           </button>
         </form>

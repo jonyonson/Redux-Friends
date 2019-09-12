@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NewFriend.css';
-
+import { withRouter } from 'react-router-dom';
 class NewFriend extends Component {
   state = {
     name: '',
@@ -82,4 +82,4 @@ class NewFriend extends Component {
   }
 }
 
-export default NewFriend;
+export default withRouter(NewFriend);

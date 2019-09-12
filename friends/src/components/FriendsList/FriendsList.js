@@ -5,7 +5,7 @@ import { FiUserPlus, FiLogOut } from 'react-icons/fi';
 import Loader from 'react-loader-spinner';
 import FriendCard from '../FriendCard/FriendCard';
 import NewFriend from '../NewFriend/NewFriend';
-
+import { withRouter } from 'react-router-dom';
 // import css
 import './FriendsList.css';
 import '../TopBar/TopBar.css';
@@ -21,7 +21,8 @@ class FriendsList extends React.Component {
 
   logout = () => {
     localStorage.setItem('token', '');
-    window.location.reload();
+    // window.location.reload();
+    this.props.history.push('/');
   };
 
   toggleNewFriendForm = e => {
@@ -101,4 +102,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { getFriends, addFriend }
-)(FriendsList);
+)(withRouter(FriendsList));
